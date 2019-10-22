@@ -1,0 +1,27 @@
+  <mat-card class="example-card" *ngFor="let data of switchData">
+    <mat-card-header>
+      <mat-card-title>{{data.switchName}}</mat-card-title>
+      <mat-card-subtitle>{{data.ip}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <table style="width: 100%">
+        <tr *ngFor="let sw of data.dataForUi">
+          <td>
+            <div>{{sw.name}}</div>
+          </td>
+          <td align="right">
+            <div>
+              <mat-button-toggle-group #group="matButtonToggleGroup" [value]="sw.status" (change)="onSwitchChange(data.ip,sw.port,group.value)">
+                <mat-button-toggle value="ON" aria-label="On">
+                  <mat-icon>power</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle value="OFF" aria-label="Off">
+                  <mat-icon>power_off</mat-icon>
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </mat-card-content>
+  </mat-card>

@@ -1,0 +1,10 @@
+FROM golang:alpine
+
+RUN mkdir -p switch
+RUN chmod -R 777 switch
+ADD build/switch/bin/3parapi switch/
+COPY resources/ switch/resources/
+
+WORKDIR vega
+RUN chmod -R 775 resources
+CMD ["./Start"]
