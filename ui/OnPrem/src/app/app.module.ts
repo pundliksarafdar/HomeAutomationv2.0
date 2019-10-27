@@ -31,7 +31,7 @@ const appRoutes: Routes = [
     HistoryComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes,{useHash: true}),
     DemoMaterialModule,
     BrowserModule,
     BrowserAnimationsModule,
