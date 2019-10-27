@@ -1,4 +1,4 @@
-deployname=switch
+deployname=go-docker
 
 echo "Building component $deployname"
 

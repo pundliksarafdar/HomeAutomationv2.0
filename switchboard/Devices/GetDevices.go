@@ -4,10 +4,11 @@ import (
 	"agent/data"
 	"agent/managers"
 	"bytes"
-	"log"
+	"github.com/rs/zerolog/log"
 	"net"
-	"os/exec"
+
 	"reflect"
+	"time"
 )
 
 var (
@@ -62,7 +63,15 @@ type Pong struct {
 
 func ping(pingChan <-chan string, pongChan chan<- Pong) {
 	for ip := range pingChan {
-		_, err := exec.Command("ping", ip).Output()
+		//_, err := exec.Command("ping", ip).Output()
+		timeOut := time.Duration(5) * time.Second
+
+		conn, err := net.DialTimeout("tcp", ip+":8000", timeOut)
+		if err != nil {
+
+		}else{
+			log.Print("Address is "+conn.RemoteAddr().String())
+		}
 		var alive bool
 		if err != nil {
 			alive = false
@@ -77,7 +86,7 @@ func receivePong(pongNum int, pongChan <-chan Pong, doneChan chan<- []Pong) {
 	var alives []Pong
 	for i := 0; i < pongNum; i++ {
 		pong := <-pongChan
-		//  fmt.Println("received:", pong)
+		//  log.Println("received:", pong)
 		if pong.Alive {
 			alives = append(alives, pong)
 		}
@@ -86,7 +95,9 @@ func receivePong(pongNum int, pongChan <-chan Pong, doneChan chan<- []Pong) {
 }
 
 func GetLiveConnection(){
+	log.Printf("Starting schedular function")
 	hosts, _ := Hosts("192.168.1.0/24")
+
 	concurrentMax := 1000
 	pingChan := make(chan string, concurrentMax)
 	pongChan := make(chan Pong, len(hosts))
@@ -100,13 +111,13 @@ func GetLiveConnection(){
 
 	for _, ip := range hosts {
 		pingChan <- ip
-		//  fmt.Println("sent: " + ip)
 	}
 
 	alives := <-doneChan
 	log.Print(alives)
 	listIp := make([]string,0)
 	for _,alive := range alives{
+		log.Printf("Alive items "+alive.Ip)
 		listIp = append(listIp,alive.Ip)
 	}
 
@@ -118,11 +129,12 @@ func GetLiveConnection(){
 	data.SwitchPortInfo = port
 	if !isEqual{
 		//Update SwitchInfo sience difference found // in case of ip change you will find see difference
+		log.Info().Msg("Pushing data to ES")
 		data.SwitchInfo = dataNew
 		//Post data to ES
 		managers.PostDataToEs()
 	}else{
-		log.Println("No differenct found in switch hence not pushing data to ES")
+		log.Info().Msg("No differenct found in switch hence not pushing data to ES")
 	}
 }
 

@@ -3,8 +3,8 @@ package data
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/rs/zerolog/log"
 	"io/ioutil"
-	"log"
 	"net/http"
 )
 
@@ -27,25 +27,25 @@ func GetAndStoreDeviceInfoForIp(ip string)map[string]string{
 	dataM := map[string]string{}
 	deviceStatusUrl := fmt.Sprintf("http://%s:%s/status",ip,port)
 	resp, err := http.Get(deviceStatusUrl)
-	log.Println(deviceStatusUrl)
+	log.Info().Msg(deviceStatusUrl)
 	defer func(){
 		if nil != resp && nil != resp.Body{
 			resp.Body.Close()}
 		}()
 	if err!=nil{
-		log.Println("Error occured for device "+ip)
+		log.Info().Msg("Error occured for device "+ip)
 	}else{
 
 			body, err := ioutil.ReadAll(resp.Body)
 			if err!=nil{
-				log.Println("Error occured for device "+ip)
+				log.Info().Msg("Error occured for device "+ip)
 			}
 		bodyMap := string(body)
 		log.Print(bodyMap)
 		er :=json.Unmarshal(body,&dataM)
 
 		if er != nil{
-			log.Println(er)
+			log.Info().Msg(er.Error())
 		}
 	}
 	return dataM
@@ -56,25 +56,25 @@ func GetAndStoreDevicePortForIp(ip string)map[string]string{
 	dataM := map[string]string{}
 	deviceStatusUrl := fmt.Sprintf("http://%s:%s/port",ip,port)
 	resp, err := http.Get(deviceStatusUrl)
-	log.Println(deviceStatusUrl)
+	log.Info().Msg(deviceStatusUrl)
 	defer func(){
 		if nil != resp && nil != resp.Body{
 			resp.Body.Close()}
 	}()
 	if err!=nil{
-		log.Println("Error occured for device "+ip)
+		log.Info().Msg("Error occured for device "+ip)
 	}else{
 
 		body, err := ioutil.ReadAll(resp.Body)
 		if err!=nil{
-			log.Println("Error occured for device "+ip)
+			log.Info().Msg("Error occured for device "+ip)
 		}
 		bodyMap := string(body)
 		log.Print(bodyMap)
 		er :=json.Unmarshal(body,&dataM)
 
 		if er != nil{
-			log.Println(er)
+			log.Info().Msg(er.Error())
 		}
 	}
 	return dataM

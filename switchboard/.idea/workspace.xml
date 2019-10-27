@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="926edb99-f132-4e5e-a453-c73cc27dd676" name="Default Changelist" comment="" />
+    <list default="true" id="926edb99-f132-4e5e-a453-c73cc27dd676" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Devices/GetDevices.go" beforeDir="false" afterPath="$PROJECT_DIR$/Devices/GetDevices.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bin/Start.exe" beforeDir="false" afterPath="$PROJECT_DIR$/build/bin/Start.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/comp-build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build/comp-build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/Start.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/Start.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/GetDeviceInfo.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/GetDeviceInfo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/managers/ESManager.go" beforeDir="false" afterPath="$PROJECT_DIR$/managers/ESManager.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/managers/Managers.go" beforeDir="false" afterPath="$PROJECT_DIR$/managers/Managers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/Server.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/Server.go" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,12 +30,17 @@
     </option>
   </component>
   <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1SQ3Oj4AutmXrV6vfNR4tfDNdZV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
@@ -30,7 +49,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ui/OnPrem" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -100,11 +119,28 @@
       <workItem from="1571483532109" duration="19661000" />
       <workItem from="1571545801095" duration="4624000" />
       <workItem from="1571635054472" duration="50000" />
+      <workItem from="1571758501551" duration="2003000" />
+      <workItem from="1571768239872" duration="1743000" />
+      <workItem from="1571802636997" duration="45000" />
+      <workItem from="1572068875770" duration="8468000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

@@ -4,7 +4,7 @@ import (
 	"agent/data"
 	"bytes"
 	"encoding/json"
-	"log"
+	"github.com/rs/zerolog/log"
 	"net/http"
 	"time"
 )
@@ -27,11 +27,11 @@ func PostDataToEs() {
 }
 
 func PostData(data map[string]interface{}){
-	esUrl := "http://localhost:9200/switchinfo/doc"
+	esUrl := "http://datastore:9200/switchinfo/doc"
 	dByte,_ := json.Marshal(data)
 	dataByte := bytes.NewBuffer(dByte)
 	_, err:= http.Post(esUrl,"application/json",dataByte)
 	if err != nil{
-		log.Print("Error occured while posting data to es")
+		log.Info().Msg("Error occured while posting data to es")
 	}
 }

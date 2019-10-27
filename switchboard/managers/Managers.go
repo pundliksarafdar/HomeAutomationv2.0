@@ -5,7 +5,7 @@ import (
 	"agent/data"
 	"agent/post"
 	"github.com/gin-gonic/gin"
-	"log"
+	"github.com/rs/zerolog/log"
 	"net/http"
 )
 
@@ -28,7 +28,7 @@ func (sM *SwitchManager)ToggleSwitch(c *gin.Context){
 	var sT Bean.SwitchToggle
 	er:= c.BindJSON(&sT)
 	if er!=nil{
-		log.Print("Error occured...")
+		log.Info().Msg("Error occured...")
 	}
 	success := post.ToggleSwitch(sT)
 	if success{
