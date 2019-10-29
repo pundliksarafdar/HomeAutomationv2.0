@@ -122,11 +122,12 @@ func GetLiveConnection(){
 	}
 
 	//Set beans for access
-	dataNew,port := data.GetAndStoreDeviceInfo(listIp)
+	dataNew,port,temp := data.GetAndStoreDeviceInfo(listIp)
 	//data.SwitchInfo =
 	isEqual := reflect.DeepEqual(dataNew,data.SwitchInfo)
 	data.ConnectedDevices = listIp
 	data.SwitchPortInfo = port
+	data.Temperature = temp
 	if !isEqual{
 		//Update SwitchInfo sience difference found // in case of ip change you will find see difference
 		log.Info().Msg("Pushing data to ES")

@@ -4,7 +4,6 @@ import (
 	"agent/router"
 	"agent/schedular"
 	"fmt"
-	"log"
 )
 
 func main() {
@@ -12,5 +11,4 @@ func main() {
 	schedular.StartSchedule()
 	fmt.Printf("Starting server......")
 	router.StartWebServer()
-	log.Print("hiiiiiiiiiiiiiiiiii")
 }

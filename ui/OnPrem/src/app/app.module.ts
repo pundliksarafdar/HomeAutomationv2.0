@@ -19,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'dashboard', component: DasboardComponent },
-  { path: 'switch', component: SwitchComponent }
+  { path: 'switch', component: SwitchComponent },
+  { path: 'history', component: HistoryComponent }
 ];
 
 @NgModule({

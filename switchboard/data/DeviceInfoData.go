@@ -4,6 +4,7 @@ var(
 	SwitchInfo = map[string]map[string]string{}
 	SwitchPortInfo = map[string]map[string]string{}
 	ConnectedDevices = make([]string,0)
+	Temperature int
 )
 
 func GetConnectedDevicesIps()[]string{

@@ -28,6 +28,11 @@ func StartWebServer(){
 
 	//Switch toggle api
 	switchApi.POST("/toggle",(&managers.SwitchManager{}).ToggleSwitch)
+
+	//Analytics
+	analyticsApi := router.Group("/analytics")
+	analyticsApi.GET("/history",(&managers.AnalyticsManager{}).GetHistoricalData)
+	analyticsApi.GET("/dashboard",(&managers.AnalyticsManager{}).GetCurrentStatus)
 	router.Run(":8080")
 
 }
