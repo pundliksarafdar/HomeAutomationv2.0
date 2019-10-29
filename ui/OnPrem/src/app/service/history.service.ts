@@ -5,16 +5,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HistoryService {
+  private value: number;
 
   constructor(private http: HttpClient) { }
 
-  getHistoryData(){
+  getHistoryData() {
     return this.http.get('/rest/analytics/history');
   }
 
-  getHistoryChartOption(seriesOptions){
+  getHistoryChartOption(seriesOptions, label, valMin, valMax, valLabel) {
     return {
-
+      title: {
+        text: label
+      },
       rangeSelector: {
         selected: 4
       },
@@ -22,11 +25,28 @@ export class HistoryService {
         type: 'datetime'
       },
       yAxis: {
+        allowDecimals: false,
+        min: valMin,
+        max: valMax,
+        title: {
+          text: valLabel
+        },
         plotLines: [{
           value: 0,
           width: 2,
           color: 'silver'
-        }]
+        }],
+        labels: {
+          formatter : (e) => {
+            if (e.value === 0){
+              return 'OFF';
+            } else if(e.value === 1){
+              return 'ON';
+            } else {
+              return  e.value;
+            }
+          }
+        }
       },
 
       plotOptions: {

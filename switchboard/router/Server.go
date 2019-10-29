@@ -33,6 +33,7 @@ func StartWebServer(){
 	analyticsApi := router.Group("/analytics")
 	analyticsApi.GET("/history",(&managers.AnalyticsManager{}).GetHistoricalData)
 	analyticsApi.GET("/dashboard",(&managers.AnalyticsManager{}).GetCurrentStatus)
+	analyticsApi.GET("/serverdata",managers.GetSwitchData)
 	router.Run(":8080")
 
 }

@@ -25,7 +25,10 @@ func PostDataToEs() {
 		dataCpy["ip"] = ip
 		dataForES = append(dataForES, dataCpy)
 	}
-	dataJson["timestamp"] = time.Now().Unix()
+
+	unixNano := time.Now().UnixNano()
+	umillisec := unixNano / 1000000
+	dataJson["timestamp"] = umillisec
 	dataJson["data"] = dataForES
 	PostData(dataJson)
 }

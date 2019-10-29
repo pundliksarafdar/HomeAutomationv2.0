@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"github.com/rs/zerolog/log"
 	"net"
-
 	"reflect"
+
 	"time"
 )
 
@@ -121,6 +121,9 @@ func GetLiveConnection(){
 		listIp = append(listIp,alive.Ip)
 	}
 
+	close(pingChan)
+	close(pongChan)
+	close(doneChan)
 	//Set beans for access
 	dataNew,port,temp := data.GetAndStoreDeviceInfo(listIp)
 	//data.SwitchInfo =

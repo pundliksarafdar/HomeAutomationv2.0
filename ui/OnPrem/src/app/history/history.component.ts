@@ -26,11 +26,11 @@ export class HistoryComponent implements OnInit {
   showHistoryData() {
     this.hData.getHistoryData().subscribe((data) => {
       // @ts-ignore
-      const option = this.hData.getHistoryChartOption(data.historicData);
+      const option = this.hData.getHistoryChartOption(data.historicData, 'Usage history ',0,1, '');
       // @ts-ignore
-      const toption = this.hData.getHistoryChartOption(data.tempdata);
+      const toption = this.hData.getHistoryChartOption(data.tempdata, 'Temperature change', undefined, undefined, 'Celcius');
       // @ts-ignore
-      Highcharts.chart('historycontainer', option);
+      Highcharts.chart('historycontainer', option, );
       // @ts-ignore
       Highcharts.chart('tempcontainer', toption);
     });

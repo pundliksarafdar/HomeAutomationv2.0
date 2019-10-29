@@ -15,6 +15,9 @@ ARG LOG_DIR=/app/logs
 # Create Log Directory
 RUN mkdir -p ${LOG_DIR}
 
+#build
+ENV build=v1
+
 # Environment Variables
 ENV LOG_FILE_LOCATION=${LOG_DIR}/app.log 
 
@@ -29,7 +32,8 @@ COPY . .
 
 #Set env for arm64
 # Build the Go app
-RUN env GOOS=linux GOARCH=arm GOARM=7 go build -o main ./cmd
+ RUN env GOOS=linux GOARCH=arm GOARM=7 go build -o main ./cmd
+# RUN go build -o main ./cmd
 
 # Expose port 8080 to the outside world
 EXPOSE 8080

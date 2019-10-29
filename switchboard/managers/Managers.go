@@ -12,6 +12,7 @@ import (
 type SwitchManager struct {
 
 }
+
 func (sM *SwitchManager)GetSwitchData(c *gin.Context){
 	switchData := data.SwitchInfo
 	switchPortData := data.SwitchPortInfo
